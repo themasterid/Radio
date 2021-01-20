@@ -1,3 +1,4 @@
+# Play Radio for All on Python 3.6 windows
 import sys
 import time
 import threading
