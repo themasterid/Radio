@@ -1,4 +1,4 @@
-# Play Radio for All on Python 3.6 windows
+# Play Radio for All on Python 3.9.1 windows
 import sys
 import time
 import threading
@@ -11,7 +11,6 @@ from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 
 from Radio_GUI import Ui_MainWindow
-from radiolist import combo_list_radio
 
 
 def thread(my_func):
@@ -28,7 +27,7 @@ def playradio(canal):
     vlcMediaPlayer = vlc.MediaPlayer(canal)
     vlcMediaPlayer.play()
     while stop_or_play == 1:
-        time.sleep(0.7)
+        time.sleep(0.5)
     vlcMediaPlayer.stop()
 
 
@@ -37,7 +36,7 @@ class MyWin(QtWidgets.QMainWindow):
         QtWidgets.QWidget.__init__(self, parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.ui.combo_list_radio.addItems(combo_list_radio)
+        self.ui.combo_list_radio.addItems(self.get_combo_list())      
         self.ui.Button_Play.clicked.connect(self.PlayMusic)
         self.ui.Button_Stop.clicked.connect(self.StopMusic)
         self.ui.combo_list_radio.currentTextChanged.connect(self.PlayMusic)
@@ -53,20 +52,36 @@ class MyWin(QtWidgets.QMainWindow):
         volume.GetVolumeRange()
         volume.SetMasterVolumeLevel(value, None)
 
-    def PlayMusic(self):
-        global stop_or_play
-        stop_or_play = 0
-        time.sleep(1)
-        key_radio = str(self.ui.combo_list_radio.currentText())
+    def get_json(self):
         with open('canals/radiochannels.json', 'r', encoding='utf-8') as read_json_file:
             data_json = json.load(read_json_file)
             read_json_file.close()
-        playradio(data_json[key_radio])
+        return data_json
+
+    def get_combo_list(self):
+        combo_list_radio = []   
+        for key, _ in self.get_json().items():
+            combo_list_radio.append(key)
+        return combo_list_radio
+    
+    def get_list_radio(self):        
+        combo_keys_radio = []   
+        for _, val in self.get_json().items():
+            combo_keys_radio.append(val)        
+        return combo_keys_radio     
+
+    def PlayMusic(self):
+        global stop_or_play
+        stop_or_play = 0
+        time.sleep(0.5)
+        key_radio = self.ui.combo_list_radio.currentIndex() 
+        radio_now = self.get_list_radio()
+        playradio(radio_now[key_radio])
 
     def StopMusic(self):
         global stop_or_play
         stop_or_play = 0
-        time.sleep(1)
+        time.sleep(0.5)
 
     def closeEvent(self, event):
         self.StopMusic()

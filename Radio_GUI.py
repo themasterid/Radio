@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'MyRadio_GUI.ui'
+# Form implementation generated from reading ui file 'Radio_GUI.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -76,7 +76,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Радио"))
         self.Button_Play.setText(_translate("MainWindow", "Слушать"))
         self.Button_Stop.setText(_translate("MainWindow", "Остановить"))
         self.groupBox.setTitle(_translate("MainWindow", "Регулировка громкости"))
