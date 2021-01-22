@@ -1,7 +1,8 @@
 Online Radio for home.
 
 For work need:
-- Windows 10
+- Windows 10 x64
+- VLC x64
 - python-vlc==3.0.11115
 - PyQt5==5.15.2
 - pyinstaller==4.2
