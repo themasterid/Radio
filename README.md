@@ -10,3 +10,9 @@ For work need:
 - pycaw==20181226
 
 etc...
+
+For fix error build exe file:
+
+pip uninstall -y enum34
+
+...write...
