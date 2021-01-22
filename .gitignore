@@ -6,3 +6,4 @@ radio-venv
 *.ui
 *.exe
 *.spec
+.gitignore
