@@ -3,4 +3,3 @@ PyQt5==5.15.2
 pyinstaller==4.2
 comtypes==1.1.8
 pycaw==20181226
-python-vlc==3.0.11115
