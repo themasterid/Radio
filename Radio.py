@@ -6,29 +6,7 @@ import vlc
 import json
 from PyQt5 import QtWidgets
 
-from ctypes import cast, POINTER
-from comtypes import CLSCTX_ALL
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
-
 from Radio_GUI import Ui_MainWindow
-
-
-def thread(my_func):
-    def wrapper(*args, **kwargs):
-        my_thread = threading.Thread(target=my_func, args=args, kwargs=kwargs)
-        my_thread.start()
-    return wrapper
-
-
-@thread
-def playradio(canal):
-    global stop_or_play
-    stop_or_play = 1
-    vlcMediaPlayer = vlc.MediaPlayer(canal)
-    vlcMediaPlayer.play()
-    while stop_or_play == 1:
-        time.sleep(0.5)
-    vlcMediaPlayer.stop()
 
 
 class MyWin(QtWidgets.QMainWindow):
@@ -40,17 +18,27 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.Button_Play.clicked.connect(self.PlayMusic)
         self.ui.Button_Stop.clicked.connect(self.StopMusic)
         self.ui.combo_list_radio.currentTextChanged.connect(self.PlayMusic)
-        self.ui.horizontalSlider.valueChanged[int].connect(self.get_valume)
+        vols = self.ui.horizontalSlider.valueChanged[int].connect(self.set_volume)
 
-    def get_valume(self, value):
-        devices = AudioUtilities.GetSpeakers()
-        interface = devices.Activate(
-            IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-        volume = cast(interface, POINTER(IAudioEndpointVolume))
-        volume.GetMute()
-        volume.GetMasterVolumeLevel()
-        volume.GetVolumeRange()
-        volume.SetMasterVolumeLevel(value, None)
+    def thread(my_func):
+        def wrapper(*args, **kwargs):
+            my_thread = threading.Thread(target=my_func, args=args, kwargs=kwargs)
+            my_thread.start()
+        return wrapper
+
+    @thread
+    def playradio(self, canal):
+        global stop_or_play, vlcMediaPlayer
+        stop_or_play = 1
+        vlcMediaPlayer = vlc.MediaPlayer(canal)
+        vlcMediaPlayer.audio_set_volume(50)
+        vlcMediaPlayer.play()
+        while stop_or_play == 1:
+            time.sleep(0.5)
+        vlcMediaPlayer.stop()
+
+    def set_volume(self, volume):
+        vlcMediaPlayer.audio_set_volume(volume)
 
     def get_json(self):
         with open('canals/radiochannels.json', 'r', encoding='utf-8') as read_json_file:
@@ -68,15 +56,15 @@ class MyWin(QtWidgets.QMainWindow):
         combo_keys_radio = []   
         for _, val in self.get_json().items():
             combo_keys_radio.append(val)        
-        return combo_keys_radio     
+        return combo_keys_radio
 
-    def PlayMusic(self):
+    def PlayMusic(self):        
         global stop_or_play
         stop_or_play = 0
         time.sleep(0.5)
         key_radio = self.ui.combo_list_radio.currentIndex() 
         radio_now = self.get_list_radio()
-        playradio(radio_now[key_radio])
+        self.playradio(radio_now[key_radio])
 
     def StopMusic(self):
         global stop_or_play
