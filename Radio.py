@@ -13,17 +13,25 @@ class MyWin(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
         self.ui = Ui_MainWindow()
-        self.ui.setupUi(self)
+        self.ui.setupUi(self)        
         self.ui.combo_list_radio.addItems(self.get_combo_list())      
         self.ui.Button_Play.clicked.connect(self.PlayMusic)
         self.ui.Button_Stop.clicked.connect(self.StopMusic)
         self.ui.combo_list_radio.currentTextChanged.connect(self.PlayMusic)
-        vols = self.ui.horizontalSlider.valueChanged[int].connect(self.set_volume)
-
+        vols = self.ui.horizontalSlider.valueChanged[int].connect(self.set_volume)     
+    
     def thread(my_func):
         def wrapper(*args, **kwargs):
             my_thread = threading.Thread(target=my_func, args=args, kwargs=kwargs)
             my_thread.start()
+        return wrapper
+
+    def play_or_stop(my_func):
+        def wrapper(self):
+            global stop_or_play
+            stop_or_play = 0
+            time.sleep(0.5)
+            my_func(self)
         return wrapper
 
     @thread
@@ -57,19 +65,16 @@ class MyWin(QtWidgets.QMainWindow):
         for _, val in self.get_json().items():
             combo_keys_radio.append(val)        
         return combo_keys_radio
-
-    def PlayMusic(self):        
-        global stop_or_play
-        stop_or_play = 0
-        time.sleep(0.5)
+    
+    @play_or_stop
+    def PlayMusic(self):
         key_radio = self.ui.combo_list_radio.currentIndex() 
         radio_now = self.get_list_radio()
         self.playradio(radio_now[key_radio])
 
+    @play_or_stop
     def StopMusic(self):
-        global stop_or_play
-        stop_or_play = 0
-        time.sleep(0.5)
+        return
 
     def closeEvent(self, event):
         self.StopMusic()
