@@ -1,4 +1,3 @@
-#!/usr/bin/python3.8
 # Play Radio for All on Python 3.9.1 windows
 import sys
 import time
