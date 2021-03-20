@@ -1,5 +1,5 @@
 #! /usr/bin/python3
-# Play Radio for All on Python 3.9.1 windows
+# Play Radio for All on Python 3.9.2 windows
 import sys
 import time
 import threading
