@@ -1,5 +1,5 @@
 #! /usr/bin/python3
-# Play Radio for All on Python 3.9.1 windows
+# Play Radio for All on Python 3.9.2 windows
 import sys
 import time
 import threading
@@ -19,7 +19,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.Button_Play.clicked.connect(self.PlayMusic)
         self.ui.Button_Stop.clicked.connect(self.StopMusic)
         self.ui.combo_list_radio.currentTextChanged.connect(self.PlayMusic)
-        vols = self.ui.horizontalSlider.valueChanged[int].connect(self.set_volume)     
+        self.ui.horizontalSlider.valueChanged[int].connect(self.set_volume)     
     
     def thread(my_func):
         def wrapper(*args, **kwargs):
@@ -40,7 +40,7 @@ class MyWin(QtWidgets.QMainWindow):
         global stop_or_play, vlcMediaPlayer
         stop_or_play = 1
         vlcMediaPlayer = vlc.MediaPlayer(canal)
-        vlcMediaPlayer.audio_set_volume(50)
+        vlcMediaPlayer.audio_set_volume(30)
         vlcMediaPlayer.play()
         while stop_or_play == 1:
             time.sleep(0.5)
