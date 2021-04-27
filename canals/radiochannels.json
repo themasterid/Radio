@@ -1,4 +1,5 @@
 {
+    "R FM (RADIO FREE MUSIC) (256 кБит/с)": "http://radio-holding.ru:9000/rfm",
     "Ялта ФМ 100.8 (128 кБит/с)": "http://yaltafm.no-ip.info:8000/online",
     "АВТОРАДИО Севастополь 102.8 (128 кБит/с)": "http://ic4.101.ru:8000/region_avto_237",
     "Юмор FM Симферополь 101.7 (128 кБит/с)": "http://den.101.ru:4000/hu_82_01",
@@ -30,6 +31,5 @@
     "Радио Маяк 192 кБит/с": "http://icecast.vgtrk.cdnvideo.ru/mayakfm_mp3_192kbps",
     "Радио России 192 кБит/с": "http://icecast.vgtrk.cdnvideo.ru/rrzonam_mp3_192kbps",
     "Радио Искатель (256 кБит/с)": "http://iskatel.hostingradio.ru:8015/iskatel-128.mp3",
-    "Хит ФМ 128 кБит/с": "http://hitfm.hostingradio.ru/hitfm128.mp3",
-    "R FM (RADIO FREE MUSIC) (256 кБит/с)": "http://radio-holding.ru:9000/rfm"
+    "Хит ФМ 128 кБит/с": "http://hitfm.hostingradio.ru/hitfm128.mp3"    
 }
