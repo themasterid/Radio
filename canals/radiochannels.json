@@ -7,7 +7,6 @@
     "Радио Крым 100.1 (256 кБит/с)": "http://fm.1tvcrimea.ru:8000/stream.mp3",
     "Радио Море 100.6 (256 кБит/с)": "http://sea.1tvcrimea.ru:9003/stream_sea.mp3",
     "Севастополь ФМ 102.0 ": "http://air.volna.top/SFM",
-    "Ватан Седасы 99.5 (256 кБит/с)": "http://91.214.128.125:64000/vatan",
     "Полезное Радио (Фео ФМ) 96.6 (Феодосия) 96 кБит/с": "http://195.161.114.53:8000/feocast",
     "Полезное Радио 104.4 (Керчь) 128 кБит/с": "http://195.161.114.53:8000/kerchcast",
     "Европа Плюс (256 кБит/с)": "http://ep256.streamr.ru",
@@ -17,13 +16,10 @@
     "Русское Радио 128 кБит/с": "http://rusradio.hostingradio.ru/rusradio128.mp3",
     "Радио MAXIMUM 128 кБит/с": "http://maximum.hostingradio.ru/maximum128.mp3",
     "Дорожное Радио (256 кБит/с)": "http://dorognoe.hostingradio.ru:8000/radio",
-    "Казак ФМ 128 кБит/с": "http://193.242.149.55:8000/kfm",
     "Radio Record 320 кБит/с": "http://air.radiorecord.ru:805/rr_320",
-    "Шансон (256 кБит/с)": "http://chanson.hostingradio.ru:8041/chanson256.mp3",
     "Релакс ФМ (256 кБит/с)": "http://ic7.101.ru:8000/v13_1",
     "Радио Джаз (256 кБит/с)": "http://nashe1.hostingradio.ru/jazz-256",
     "НАШЕ Радио (256 кБит/с)": "http://nashe1.hostingradio.ru/nashe-256",
-    "Радио Звезда 128 кБит/с": "http://89.208.99.16:8088/zvezda_128",
     "Comedy Radio +0 (256 кБит/с)": "http://ic7.101.ru:8000/s60",
     "Маруся ФМ 192 кБит/с": "http://radio-holding.ru:9000/marusya_default",
     "Радио Русь 128 кБит/с": "http://radio-holding.ru:9000/rus",
@@ -31,5 +27,5 @@
     "Радио Маяк 192 кБит/с": "http://icecast.vgtrk.cdnvideo.ru/mayakfm_mp3_192kbps",
     "Радио России 192 кБит/с": "http://icecast.vgtrk.cdnvideo.ru/rrzonam_mp3_192kbps",
     "Радио Искатель (256 кБит/с)": "http://iskatel.hostingradio.ru:8015/iskatel-128.mp3",
-    "Хит ФМ 128 кБит/с": "http://hitfm.hostingradio.ru/hitfm128.mp3"    
+    "Хит ФМ 128 кБит/с": "http://hitfm.hostingradio.ru/hitfm128.mp3"
 }
