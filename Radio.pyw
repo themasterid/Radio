@@ -51,9 +51,7 @@ class MyWin(QtWidgets.QMainWindow):
 
     def get_json(self):
         with open('canals/radiochannels.json', 'r', encoding='utf-8') as read_json_file:
-            data_json = json.load(read_json_file)
-            read_json_file.close()
-        return data_json
+            return json.load(read_json_file)
 
     def get_combo_list(self):
         combo_list_radio = []   
