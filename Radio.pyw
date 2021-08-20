@@ -1,10 +1,11 @@
 #! /usr/bin/python3
 # Play Radio for All on Python 3.9.2 windows
-import sys
-import time
-import threading
-import vlc
 import json
+import sys
+import threading
+import time
+
+import vlc
 from PyQt5 import QtWidgets
 
 from Radio_GUI import Ui_MainWindow
@@ -14,16 +15,18 @@ class MyWin(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
         self.ui = Ui_MainWindow()
-        self.ui.setupUi(self)        
-        self.ui.combo_list_radio.addItems(self.get_combo_list())      
-        self.ui.Button_Play.clicked.connect(self.PlayMusic)
-        self.ui.Button_Stop.clicked.connect(self.StopMusic)
-        self.ui.combo_list_radio.currentTextChanged.connect(self.PlayMusic)
-        self.ui.horizontalSlider.valueChanged[int].connect(self.set_volume)     
-    
+        self.ui.setupUi(self)
+        self.ui.combo_list_radio.addItems(self.get_combo_list())
+        self.ui.Button_Play.clicked.connect(self.playmusic)
+        self.ui.Button_Stop.clicked.connect(self.stopmusic)
+        self.ui.combo_list_radio.currentTextChanged.connect(self.playmusic)
+        self.ui.horizontalSlider.valueChanged[int].connect(
+            self.set_volume)
+
     def thread(my_func):
         def wrapper(*args, **kwargs):
-            my_thread = threading.Thread(target=my_func, args=args, kwargs=kwargs)
+            my_thread = threading.Thread(
+                target=my_func, args=args, kwargs=kwargs)
             my_thread.start()
         return wrapper
 
@@ -50,33 +53,35 @@ class MyWin(QtWidgets.QMainWindow):
         vlcMediaPlayer.audio_set_volume(volume)
 
     def get_json(self):
-        with open('canals/radiochannels.json', 'r', encoding='utf-8') as read_json_file:
+        with open(
+            'canals/radiochannels.json', 'r', encoding='utf-8'
+        ) as read_json_file:
             return json.load(read_json_file)
 
     def get_combo_list(self):
-        combo_list_radio = []   
+        combo_list_radio: list = []
         for key, _ in self.get_json().items():
             combo_list_radio.append(key)
         return combo_list_radio
-    
-    def get_list_radio(self):        
-        combo_keys_radio = []   
+
+    def get_list_radio(self):
+        combo_keys_radio: list = []
         for _, val in self.get_json().items():
-            combo_keys_radio.append(val)        
+            combo_keys_radio.append(val)
         return combo_keys_radio
-    
+
     @play_or_stop
-    def PlayMusic(self):
-        key_radio = self.ui.combo_list_radio.currentIndex() 
+    def playmusic(self):
+        key_radio = self.ui.combo_list_radio.currentIndex()
         radio_now = self.get_list_radio()
         self.playradio(radio_now[key_radio])
 
     @play_or_stop
-    def StopMusic(self):
+    def stopmusic(self):
         return
 
-    def closeEvent(self, event):
-        self.StopMusic()
+    def closeevent(self, event):
+        self.stopmusic()
         event.accept()
 
 
