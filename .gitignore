@@ -1,7 +1,6 @@
 /__pycache__
 /dist
 /build
-radio-venv
 *.bat
 *.ui
 *.exe
