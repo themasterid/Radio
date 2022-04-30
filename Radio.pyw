@@ -1,5 +1,3 @@
-#! /usr/bin/python3
-# Play Radio for All on Python 3.9.2 windows
 import json
 import sys
 import threading
@@ -59,16 +57,10 @@ class MyWin(QtWidgets.QMainWindow):
             return json.load(read_json_file)
 
     def get_combo_list(self):
-        combo_list_radio: list = []
-        for key, _ in self.get_json().items():
-            combo_list_radio.append(key)
-        return combo_list_radio
+        return [key for key, _ in self.get_json().items()]
 
     def get_list_radio(self):
-        combo_keys_radio: list = []
-        for _, val in self.get_json().items():
-            combo_keys_radio.append(val)
-        return combo_keys_radio
+        return [val for _, val in self.get_json().items()]
 
     @play_or_stop
     def playmusic(self):
