@@ -20,6 +20,7 @@ pip uninstall -y enum34
 
 ```bash
 git clone git@github.com:themasterid/Radio.git
+git clone https://github.com/themasterid/Radio.git
 ```
 
 Создаем виртуальное окружение venv:
