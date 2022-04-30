@@ -1,4 +1,4 @@
-Online Radio for home.
+- Онлайн радио для дома.
 
 For work need:
 - Windows 10 x64 (x86)
