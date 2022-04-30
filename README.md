@@ -37,8 +37,13 @@ python3 -m venv venv
 
 Активируем виртуальное окружение:
 
+- Windows
 ```bash
 source venv/Scripts/activate
+```
+- Linux
+```bash
+source venv/bin/activate
 ```
 
 Устанавливаем зависимости:
