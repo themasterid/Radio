@@ -1,6 +1,6 @@
 ## Онлайн радио для дома.
 
-![Git](/svg/git.svg)
+![Radio](/img/Radio.png)
 
 Для работы необходимы:
 - Windows 10/11 x64 (x86)
