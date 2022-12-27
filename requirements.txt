@@ -9,5 +9,5 @@ PyQt5-Qt5==5.15.2
 PyQt5-sip==12.10.1
 python-vlc==3.0.16120
 pywin32-ctypes==0.2.0
-setuptools==58.1.0
+setuptools==65.5.1
 wheel==0.37.1
