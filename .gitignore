@@ -6,3 +6,4 @@
 *.exe
 *.spec
 /venv
+/env
