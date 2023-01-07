@@ -16,11 +16,15 @@ pip uninstall -y enum34
 
 ## Установка
 
-Клонируем репозиторий на ПК:
+Клонируем репозиторий:
 
 ```bash
 git clone git@github.com:themasterid/Radio.git
-or
+```
+
+или
+
+```bash
 git clone https://github.com/themasterid/Radio.git
 ```
 
@@ -56,12 +60,15 @@ pip install -r requirements.txt
 - Linux
 ```bash
 sudo apt install python3-pip -y
+```
+```bash
 pip3 install -r requirements.txt
 ```
 
 Запускаем радио:
 
 - Windows
+
 ```bash
 python Radio.pyw
 ```
