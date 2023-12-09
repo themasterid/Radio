@@ -1,7 +1,7 @@
 altgraph==0.17.3
 future==0.18.3
 pefile==2022.5.30
-pyinstaller==5.7.0
+pyinstaller==5.13.1
 PyQt5==5.15.7
 python-vlc==3.0.18121
 wheel==0.38.4
