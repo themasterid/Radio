@@ -46,7 +46,9 @@ class Ui_MainWindow(object):
         self.Button_Play.setFont(font)
         self.Button_Play.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("img/play.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(
+            QtGui.QPixmap("img/play.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off
+        )
         self.Button_Play.setIcon(icon1)
         self.Button_Play.setObjectName("Button_Play")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
@@ -75,7 +77,9 @@ class Ui_MainWindow(object):
         self.Button_Stop.setFont(font)
         self.Button_Stop.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("img/stop.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(
+            QtGui.QPixmap("img/stop.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off
+        )
         self.Button_Stop.setIcon(icon2)
         self.Button_Stop.setObjectName("Button_Stop")
         self.groupBox.raise_()
@@ -90,4 +94,4 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Радио"))
-        self.groupBox.setTitle(_translate("MainWindow", "Регулировка громкости"))
+        # self.groupBox.setTitle(_translate("MainWindow", "Регулировка громкости"))
