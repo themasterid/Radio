@@ -1,7 +1,13 @@
-altgraph>=0.17.4
-future>=0.14.0
-pefile>=2023.2.7
-pyinstaller>=6.8.0
-PyQt5>=5.15.10
+# GUI Framework
+PyQt6>=6.6.0
+
+# VLC Media Player Bindings
 python-vlc>=3.0.20123
+
+# Packaging & Build Tools
+pyinstaller>=6.8.0
+pyinstaller-hooks-contrib>=2024.0
+
+# Utilities
 wheel>=0.43.0
+setuptools>=69.0.0
